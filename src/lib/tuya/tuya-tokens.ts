@@ -4,8 +4,8 @@ import { default as axios } from "axios";
 import "dotenv/config";
 import { TuyaRequestConfig, TuyaRequestHeaders } from "./tuya.types.js";
 
-if (!process.env.CLIENT_ID || !process.env.CLIENT_SECRET || !process.env.TUYA_HOST) {
-    throw new Error("CLIENT_ID, CLIENT_SECRET, or TUYA_HOST environment variables are undefined.");
+if (!process.env.CLIENT_ID || !process.env.CLIENT_SECRET || !process.env.TUYA_DOMAIN) {
+    throw new Error("CLIENT_ID, CLIENT_SECRET, or TUYA_DOMAIN environment variables are undefined.");
 }
 
 const config = {
@@ -16,7 +16,7 @@ const config = {
 };
 
 const httpClient = axios.create({
-    baseURL: process.env.TUYA_HOST,
+    baseURL: process.env.TUYA_DOMAIN,
     timeout: 5 * 1e3,
 });
 
